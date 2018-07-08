@@ -15,19 +15,19 @@ var path = require('path');
 
 // parse our local-settings.json to pull in appropriate credentials
 var localSettingsJson = fs.readFileSync("local-settings.json");
-console.log('local settings: ' + localSettingsJson);
+var localSettings = JSON.parse(localSettingsJson);
 // var localSettingsJson = process.env;
 
 // set up server port and db creds
-var port = localSettingsJson.PORT || 3001;
-var db_username = localSettingsJson.DB_USERNAME;
-var db_password = localSettingsJson.DB_PASSWORD;
-console.log('db check: ' + db_username);
+var port = localSettings.PORT || 3001;
+var db_username = localSettings.DB_USERNAME;
+var db_password = localSettings.DB_PASSWORD;
 
 //db config
 mongoose.Promise = require('bluebird');
 mongoose.connect(`mongodb://${db_username}:${db_password}@ds131551.mlab.com:31551/saysomething_data`, {
   useMongoClient: true,
+  useNewUrlParser: true,
 });
 
 //configure the API to use bodyParser and look for
@@ -35,7 +35,7 @@ mongoose.connect(`mongodb://${db_username}:${db_password}@ds131551.mlab.com:3155
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//set up static hosting
+//set up static hosting for our index.html and other assets
 app.use('/static', express.static(path.join(__dirname, '/build/static')));
 app.use('/img', express.static(path.join(__dirname, '/build/img')));
 
@@ -63,10 +63,10 @@ router.route('/rme')
 
   .get(function(req,res) {
     //looks at our Video Schema
-    Video.find(function(err, videos) {
+    SaysomethinText.find(function(err, saysomethinText) {
       if (err)
       res.send(err);
-      res.json(videos)
+      res.json(saysomethinText)
     });
   })
   //post new video to the Database
