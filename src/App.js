@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Write Somethin For Someone</h1>
+          <h1 className="App-title">Say Something</h1>
           <InputField
             url="this/hits/your/api"
           />
