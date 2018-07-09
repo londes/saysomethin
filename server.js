@@ -14,9 +14,9 @@ var router = express.Router();
 var path = require('path');
 
 // parse our local-settings.json to pull in appropriate credentials
-var localSettingsJson = fs.readFileSync("local-settings.json");
-var localSettings = JSON.parse(localSettingsJson);
-// var localSettingsJson = process.env;
+// var localSettingsJson = fs.readFileSync("local-settings.json");
+// var localSettings = JSON.parse(localSettingsJson);
+var localSettings = process.env;
 
 // set up server port and db creds
 var port = localSettings.PORT || 3001;
