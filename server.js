@@ -59,17 +59,16 @@ router.get('/', function(req, res) {
 
 //adding the /videos route to our router
 router.route('/rme')
-  //retrieve all videos from db
 
   .get(function(req,res) {
-    //looks at our Video Schema
+    //looks at our text Schema
     SaysomethinText.find(function(err, saysomethinText) {
       if (err)
       res.send(err);
       res.json(saysomethinText)
     });
   })
-  //post new video to the Database
+  //post new text to the Database
   .post(function(req, res) {
     console.dir(req.body);
     var {
