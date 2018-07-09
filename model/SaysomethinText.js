@@ -9,4 +9,4 @@ var SaysomethingTextSchema = new Schema({
  msgText: String
 });
 //export our module to use in server.js
-module.exports = mongoose.model('SaysomethinText', SaysomethingTextSchema);
+module.exports = mongoose.model('SaysomethingText', SaysomethingTextSchema);
