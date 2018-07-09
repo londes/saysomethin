@@ -97,7 +97,7 @@ router.route('/rme')
     })
 
 //Use our router configuration when we call /api
-app.use('/api', router);
+app.use('/', router);
 
 //starts the server and listens for requests
 app.listen(port, function() {
