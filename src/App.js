@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import InputField from './components/InputField/InputField'
+import TextBody from './components/TextBody/TextBody'
 
 class App extends Component {
   constructor (props) {
@@ -23,6 +24,9 @@ class App extends Component {
             url="this/hits/your/api"
           />
         </header>
+        <TextBody
+          text="dinky"
+          />
       </div>
     );
   }
