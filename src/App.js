@@ -21,11 +21,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Say Something</h1>
           <InputField
-            url="this/hits/your/api"
+            url="http://localhost:3001/forthesakeofit"
           />
         </header>
         <TextBody
-          text="dinky"
+          text=${this.state.textOutput}
           />
       </div>
     );

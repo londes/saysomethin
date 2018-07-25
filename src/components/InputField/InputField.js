@@ -17,22 +17,19 @@ class InputField extends Component {
 
   submitHandle = (event) => {
     alert('something was submitted: ' + this.state.textInput);
-    let textOutput = this.state.textInput;
-    event.preventDefault();
-
-    // validation
-
-    // do stuff
-
-    // fetch(this.props.url, {
-    //   method: 'POST',
-    //   headers: {'Content-Type':'application/json'},
-    //   body: JSON.stringify({
-    //     'embedUrl': embedUrl,
-    //     'clipUrl': cleanVidLink,
-    //     'clipId': clipId,
-    //   })
-    // })
+    fetch(this.props.url, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        'msgText': this.state.textInput
+      })
+    })
+      .then(res => {
+        this.setState({vidLink: ""});
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
  render() {

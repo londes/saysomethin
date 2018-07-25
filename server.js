@@ -78,6 +78,10 @@ router.route('/forthesakeofit')
       msgText: msgText,
     });
 
+    mongoose.connection.collections['saysomethingtexts'].drop( function(err) {
+      console.log('collection dropped');
+    });
+
     saysomethingText.save(function(err) {
       if (err) {
         res.send(err);
