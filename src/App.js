@@ -25,7 +25,7 @@ class App extends Component {
           />
         </header>
         <TextBody
-          text=${this.state.textOutput}
+          text={this.state.textOutput}
           />
       </div>
     );
