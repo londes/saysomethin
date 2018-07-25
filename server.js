@@ -5,7 +5,7 @@ var express = require('express');
 var msgListener = require('http');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var SaysomethinText = require('./model/SaysomethinText');
+var SaysomethingText = require('./model/SaysomethingText');
 var md5 = require('md5');
 var fs = require('fs');
 //and create our instances
@@ -57,8 +57,8 @@ router.get('/', function(req, res) {
  res.sendFile(path.join(__dirname, '/build/', 'index.html'));
 });
 
-//adding the /videos route to our router
-router.route('/rme')
+//route to push so everyone can see
+router.route('/forthesakeofit')
 
   .get(function(req,res) {
     //looks at our text Schema
@@ -78,10 +78,11 @@ router.route('/rme')
       msgText: msgText,
     });
 
-    saysomethinText.save(function(err) {
+    saysomethingText.save(function(err) {
       if (err) {
         res.send(err);
       }
+      console.log('got a request');
       res.json({message: 'text added'});
     });
   });

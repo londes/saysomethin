@@ -16,7 +16,8 @@ class InputField extends Component {
   }
 
   submitHandle = (event) => {
-    alert('something was submitted: ' + this.state.textInput)
+    alert('something was submitted: ' + this.state.textInput);
+    let textOutput = this.state.textInput;
     event.preventDefault();
 
     // validation
