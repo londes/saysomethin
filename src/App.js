@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import InputField from './components/InputField/InputField'
 import TextBody from './components/TextBody/TextBody'
+import socketIOClient from 'socket.io-client'
+
+const socket = socketIOClient('http://localhost:3001/');
+console.log(socket);
 
 class App extends Component {
   constructor (props) {

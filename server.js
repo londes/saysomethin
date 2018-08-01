@@ -62,7 +62,7 @@ router.route('/forthesakeofit')
 
   .get(function(req,res) {
     //looks at our text Schema
-    SaysomethinText.find(function(err, saysomethinText) {
+    SaysomethingText.find(function(err, saysomethinText) {
       if (err)
       res.send(err);
       res.json(saysomethinText)
