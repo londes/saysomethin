@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './InputField.css';
+import TextBody from '../TextBody/TextBody'
 
 class InputField extends Component {
   constructor (props) {
@@ -25,7 +26,8 @@ class InputField extends Component {
       })
     })
       .then(res => {
-        this.setState({vidLink: ""});
+        this.setState({textOutput: this.state.textInput});
+        console.log(this.state.textOutput);
       })
       .catch(err => {
         console.error(err);
@@ -34,13 +36,16 @@ class InputField extends Component {
 
  render() {
   return (
-    <form onSubmit={this.submitHandle}>
-      <label>
-        write something:
-        <input type="text" value={this.state.textInput} onChange={this.changeHandler} />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <div>
+      <form onSubmit={this.submitHandle}>
+        <label>
+          write something:
+          <input type="text" value={this.state.textInput} onChange={this.changeHandler} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+      <TextBody text={this.state.textOutput} />
+    </div>
   );
  };
 }

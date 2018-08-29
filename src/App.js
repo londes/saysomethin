@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import InputField from './components/InputField/InputField'
-import TextBody from './components/TextBody/TextBody'
-import socketIOClient from 'socket.io-client'
+import InputField from './components/InputField/InputField';
+import socketIOClient from 'socket.io-client';
 
 const socket = socketIOClient('http://localhost:3001/');
 console.log(socket);
@@ -28,9 +27,6 @@ class App extends Component {
             url="http://localhost:3001/forthesakeofit"
           />
         </header>
-        <TextBody
-          text={this.state.textOutput}
-          />
       </div>
     );
   }

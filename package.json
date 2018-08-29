@@ -6,6 +6,7 @@
     "@types/socket.io-client": "^1.4.32",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "express-ws": "^4.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "md5": "^2.2.1",

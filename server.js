@@ -10,6 +10,7 @@ var md5 = require('md5');
 var fs = require('fs');
 //and create our instances
 var app = express();
+var expressWs = require('express-ws')(app);
 var router = express.Router();
 var path = require('path');
 
@@ -100,6 +101,13 @@ router.route('/forthesakeofit')
     })
     .post(function(req, res) {
     })
+
+    router.ws('/echo', function(ws, req) {
+      ws.on('message', function(msg) {
+        ws.send(msg);
+      });
+      console.log('socket running');
+    });
 
 //Use our router configuration when we call /api
 app.use('/', router);
